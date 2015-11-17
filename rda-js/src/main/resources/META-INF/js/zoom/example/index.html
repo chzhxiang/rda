@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <title>test</title>
+    <link rel="stylesheet" href="../../style/zoom.css" />
+    <style type="text/css">
+        .zoom-section {
+            clear: both;
+            margin-top: 20px;
+        }
+        .zoom-small-image {
+            border: 4px solid #CCCCCC;
+            float: left;
+            margin-bottom: 20px;
+        }
+        .zoom-desc {
+            float: left;
+            margin-bottom: 20px;
+            margin-left: 10px;
+            width: 310px;
+        }
+        .zoom-tiny-image {
+            border: 1px solid #CCCCCC;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+<div class="zoom-section">
+    <div class="zoom-small-image"><div style="top: 0px; z-index: 9999; position: relative;" id="wrap"><a rel="adjustX: 10, adjustY:-4" id="zoom1" class="cloud-zoom" href="images/zoomengine/bigimage00.jpg" style="position: relative; display: block;"><img title="Optional title display" alt="" src="images/zoomengine/smallimage.jpg" style="display: block;"></a><div style="background-image: url(&quot;.&quot;); z-index: 999; position: absolute; width: 240px; height: 320px; left: 0px; top: 0px; cursor: move;" class="mousetrap"></div></div></div>
+    <div class="zoom-desc">
+        <h3>Standard Settings With Gallery</h3>
+        <p>
+            <a rel="useZoom: 'zoom1', smallImage: 'images/zoomengine/smallimage.jpg' " title="Red" class="cloud-zoom-gallery" href="images/zoomengine/bigimage00.jpg"><img alt="Thumbnail 1" src="images/zoomengine/tinyimage.jpg" class="zoom-tiny-image"></a>
+            <a rel="useZoom: 'zoom1', smallImage: 'images/zoomengine/smallimage-1.jpg'" title="Blue" class="cloud-zoom-gallery" href="images/zoomengine/bigimage01.jpg"><img alt="Thumbnail 2" src="images/zoomengine/tinyimage-1.jpg" class="zoom-tiny-image"></a>
+            <a rel="useZoom: 'zoom1', smallImage: 'images/zoomengine/smallimage-2.jpg' " title="Blue" class="cloud-zoom-gallery" href="images/zoomengine/bigimage02.jpg"><img alt="Thumbnail 3" src="images/zoomengine/tinyimage-2.jpg" class="zoom-tiny-image"></a>
+        </p>
+        <p>Hover over the large image to see the zoom working.</p>
+        <p>These are the 'out of the box' settings, with the big image appearing to the right of the small image.</p>
+        <p>The appearance of the smaller image, lens and zoom window can be altered with regular CSS.</p>
+    </div>
+</div>
+<script type="text/javascript" src="../../taurus/seajs/2.0.0/sea.js"></script>
+<script type="text/javascript">
+    seajs.config({
+        alias:{
+            'jquery':'../../taurus/jquery/1.9.1/jquery.js'
+        },
+        preload : [ 'jquery']
+    });
+    seajs.use('./index.js');
+</script>
+</body>
+</html>

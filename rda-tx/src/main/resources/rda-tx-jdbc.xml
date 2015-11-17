@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:p="http://www.springframework.org/schema/p"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans
+			http://www.springframework.org/schema/beans/spring-beans.xsd
+			http://www.springframework.org/schema/tx
+			http://www.springframework.org/schema/tx/spring-tx.xsd">
+	<description>基于JDBC的本地事务配置.依赖rda-orm项目的rda-datasource-*.xml</description>
+	<!-- 注意此bean的id值与org.soofa.core.constant.BeanID中的常量PLATFORM_TRANSACTION_MANAGER_BEAN_ID相关联 -->
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager" p:dataSource-ref="dataSource" p:defaultTimeout="3" />
+	<!--Activates @Transactional or @Transactional(readOnly = true) for Database -->
+	<!-- 注意，必须确保包含<context:load-time-weaver />使@Transactional避免self-invocation导致事务失效 -->
+	<!-- order设置为200是为了确保自定义的AOP拦截器能先于此拦截器运行,order值越小,就在越外层,越外层就越先被调用,mode="aspectj"模式能确保了能支持self-invocation的事务 -->
+	<tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true" order="200" mode="proxy" />
+
+</beans>

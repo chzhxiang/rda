@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+			http://www.springframework.org/schema/beans 
+			http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+			http://www.springframework.org/schema/jdbc 
+			http://www.springframework.org/schema/jdbc/spring-jdbc.xsd
+			http://www.springframework.org/schema/tx 
+			http://www.springframework.org/schema/tx/spring-tx.xsd">
+	<!-- 此文件包含数据库相关配置 -->
+
+	<!--Activates @Transactional or @Transactional(readOnly = true) for Database -->
+	<!-- 注意，必须确保包含<context:load-time-weaver />使@Transactional避免self-invocation导致事务失效 -->
+	<!-- order设置为200是为了确保自定义的AOP拦截器能先于此拦截器运行,order值越小,就在越外层,越外层就越先被调用,mode="aspectj"模式能确保了能支持self-invocation的事务 -->
+	<tx:annotation-driven transaction-manager="myTxManager" mode="proxy" order="200" proxy-target-class="true" />
+
+	<!-- <bean id="dataSource" class="com.jolbox.bonecp.BoneCPDataSource" destroy-method="close" > -->
+	<!-- <property name="driverClass" value="com.mysql.jdbc.Driver" /> -->
+	<!-- <property name="jdbcUrl" value="jdbc:mysql://127.0.0.1/yourdb" /> -->
+	<!-- <property name="username" value="root" /> -->
+	<!-- <property name="password" value="abcdefgh" /> -->
+	<!-- <property name="idleConnectionTestPeriod" value="60" /> -->
+	<!-- <property name="idleMaxAge" value="240" /> -->
+	<!-- <property name="maxConnectionsPerPartition" value="30" /> -->
+	<!-- <property name="minConnectionsPerPartition" value="10" /> -->
+	<!-- <property name="partitionCount" value="3" /> -->
+	<!-- <property name="acquireIncrement" value="5" /> -->
+	<!-- <property name="statementsCacheSize" value="100" /> -->
+	<!-- <property name="releaseHelperThreads" value="3" /> -->
+	<!-- </bean> -->
+	
+	<!-- <jdbc:embedded-database id="dataSource2" type="H2"> -->
+	<!-- <jdbc:script location="classpath:db/schema.sql" /> -->
+	<!-- <jdbc:script location="classpath:test-data2.sql" /> -->
+	<!-- </jdbc:embedded-database> -->
+
+	<bean id="myTxManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager" p:dataSource-ref="dataSource" p:defaultTimeout="3" />
+
+	<!-- <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroymethod="close"> -->
+	<!-- <property name="driverClassName" value="${jdbc.driverClassName}" /> -->
+	<!-- <property name="url" value="${jdbc.url}" /> -->
+	<!-- <property name="username" value="${jdbc.username}" /> -->
+	<!-- <property name="password" value="${jdbc.password}" /> -->
+	<!-- </bean> -->
+
+	<!-- <bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager" p:dataSource-ref="dataSource2" p:defaultTimeout="3" 
+		/> -->
+		
+<!-- 	<bean id="abstractDataSource" abstract="true" class="com.jolbox.bonecp.BoneCPDataSource" destroy-method="close"> -->
+<!-- 		<property name="driverClass" value="org.h2.Driver" /> -->
+<!-- 		<property name="username" value="sa" /> -->
+<!-- 		<property name="password" value="" /> -->
+<!-- 	</bean> -->
+
+<!-- 	<bean id="readDS1" parent="abstractDataSource"> -->
+<!-- 		<property name="jdbcUrl" value="jdbc:h2:d:/data/read1.data" /> -->
+<!-- 	</bean> -->
+	
+<!-- 	<bean id="readDS2" parent="abstractDataSource"> -->
+<!-- 		<property name="jdbcUrl" value="jdbc:h2:d:/data/read2.data" /> -->
+<!-- 	</bean> -->
+	
+<!-- 	<bean id="readDS3" parent="abstractDataSource"> -->
+<!-- 		<property name="jdbcUrl" value="jdbc:h2:d:/data/read3.data" /> -->
+<!-- 	</bean> -->
+
+<!-- 	<bean id="writeDS" parent="abstractDataSource"> -->
+<!-- 		<property name="jdbcUrl" value="jdbc:h2:d:/data/write.data" /> -->
+<!-- 	</bean> -->
+
+	<!--简单的一个master和一个slaver 读写分离的数据源 -->
+<!-- 	<bean id="routingDS" class="com.rda.mybatis.rw.datasource.RoutingDataSource"> -->
+<!-- 		<property name="targetDataSources"> -->
+<!-- 			<map key-type="java.lang.String"> -->
+<!-- 				<entry key="read" value-ref="readDS"></entry> -->
+<!-- 				<entry key="write" value-ref="writeDS"></entry> -->
+<!-- 			</map> -->
+<!-- 		</property> -->
+<!-- 		<property name="defaultTargetDataSource" ref="writeDS"></property> -->
+<!-- 	</bean> -->
+
+	<!-- 适用于一个master和多个slaver的场景,并用roundrobin做负载均衡 -->
+<!-- 	<bean id="dataSource" class="com.rda.mybatis.rw.datasource.RoundRobinRWRoutingDataSourceProxy"> -->
+<!-- 		<property name="writeDataSource" ref="writeDS"/> -->
+<!-- 		<property name="readDataSoures"> -->
+<!-- 			<list> -->
+<!-- 				<ref bean="readDS1" /> -->
+<!-- 				<ref bean="readDS2" /> -->
+<!-- 				<ref bean="readDS3" /> -->
+<!-- 			</list> -->
+<!-- 		</property> -->
+<!-- 		<property name="readKey" value="READ"/> -->
+<!-- 		<property name="writeKey" value="WRITE"/> -->
+<!-- 	</bean> -->
+	
+	<beans> 
+		<jdbc:embedded-database id="dataSource" type="H2">
+			<jdbc:script location="classpath:db/schema.sql" />
+			<jdbc:script location="classpath:db/test-data.sql" />
+			<jdbc:script location="classpath:shiro-test-bootstrap.sql"/>
+		</jdbc:embedded-database>
+	</beans>
+
+</beans>

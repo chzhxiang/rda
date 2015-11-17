@@ -1,0 +1,12 @@
+{
+    "name":"datepicker",
+    "version":"1.10.0",
+    "parent":"../package.json",
+    "output":{
+        "datepicker.js":"."
+    },
+    "dependencies":{
+    	"$":"$",
+        "core":"taurus/core/1.10.0/jquery.ui.core"
+    }
+}

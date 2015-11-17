@@ -1,0 +1,11 @@
+{
+    "name":"timepicker",
+    "parent":"../package.json",
+    "version":"1.1.1",
+    "output":{"timepicker.js":"."},
+    "dependencies":{
+    	"$":"$",
+        "datepicker":"taurus/datepicker/1.9.2/datepicker",
+        "slider":"taurus/slider/1.9.2/jquery.ui.slider"
+    }
+}

@@ -1,0 +1,11 @@
+{
+    "name":"jqgrid",
+    "parent":"../package.json",
+    "version":"4.4.4",
+    "output":{
+        "jqgrid.js":"."
+    },
+    "dependencies":{
+    	"$":"$"
+    }
+}

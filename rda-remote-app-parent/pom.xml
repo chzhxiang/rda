@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>rda-parent</artifactId>
+        <groupId>com.rda</groupId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <packaging>pom</packaging>
+
+    <artifactId>rda-remote-app-parent</artifactId>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.rda</groupId>
+            <artifactId>rda-remote</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.rda</groupId>
+            <artifactId>rda-remote-bin</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.rda</groupId>
+            <artifactId>rda-core</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+
+        <plugins>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>unpack-dependencies</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>unpack-dependencies</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${project.build.directory}/bin</outputDirectory>
+                            <overWriteReleases>false</overWriteReleases>
+                            <overWriteSnapshots>true</overWriteSnapshots>
+                            <includeGroupIds>com.rda</includeGroupIds>
+                            <includeArtifactIds>rda-remote-bin</includeArtifactIds>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <artifactId>maven-jar-plugin</artifactId>
+                <configuration>
+                    <excludes>
+                        <exclude>**/log*.xml</exclude>
+                        <exclude>conf/*</exclude>
+                        <exclude>conf/**/*</exclude>
+                        <exclude>META-INF/*</exclude>
+                        <exclude>META-INF/**/*</exclude>
+                    </excludes>
+                </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>2.4.1</version>
+                <dependencies>
+                    <dependency>
+                        <groupId>com.rda</groupId>
+                        <artifactId>rda-remote-app-assembly</artifactId>
+                        <version>0.0.1-SNAPSHOT</version>
+                    </dependency>
+                </dependencies>
+                <configuration>
+                    <finalName>${project.artifactId}-${project.version}-${maven.build.timestamp}</finalName>
+                    <filters>
+                        <filter>src/filters/${profile-id}-filter.properties</filter>
+                    </filters>
+                    <descriptorRefs>
+                        <descriptorRef>dubbo-app-assembly</descriptorRef>
+                    </descriptorRefs>
+                    <appendAssemblyId>false</appendAssemblyId>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

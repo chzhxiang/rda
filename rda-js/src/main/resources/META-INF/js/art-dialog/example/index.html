@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <title>test</title>
+    <link rel="stylesheet" href="../../style/jquery.css" />
+    <link rel="stylesheet" href="../../style/art-dialog/skins/aero.css" />
+</head>
+<body>
+<div class="shadowbox">
+    <p>一、使用传统的参数</p>
+    <div>
+        <h5>$.dialog(content, ok, cancel)</h5>
+        <p><input type="button" class="btn" id="btn1" value="运行"/></p>
+    </div>
+
+    <p>二、使用字面量传参</p>
+    <div>
+        <h5>$.dialog(option)</h5>
+        <p><input type="button" class="btn" id="btn2" value="运行"/></p>
+    </div>
+
+    <p>三、右下角滑动通知</p>
+    <div>
+        <h5>$.dialog.notice(option)</h5>
+        <p><input type="button" class="btn" id="btn3" value="运行"/></p>
+    </div>
+</div>
+<script type="text/javascript" src="../../seajs/2.0.0/sea.js"></script>
+<script type="text/javascript">
+    seajs.config({
+                     alias:{
+                         'jquery':'jquery/1.9.1/jquery.js',
+                         'art-dialog':'taurus/art-dialog/4.1.6/dialog-debug.js'
+                     },
+                     preload : [ 'jquery']
+                 });
+    seajs.use('./index.js');
+</script>
+</body>
+</html>

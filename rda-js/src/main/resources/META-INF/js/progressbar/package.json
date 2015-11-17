@@ -1,0 +1,13 @@
+{
+    "name":"progressbar",
+    "version":"1.10.0",
+    "parent":"../package.json",
+    "output":{
+        "jquery.ui.progressbar.js":"."
+    },
+    "dependencies":{
+        "$":"$",
+        "core":"taurus/core/1.10.0/jquery.ui.core",
+        "widget":"taurus/core/1.10.0/jquery.ui.widget"
+    }
+}

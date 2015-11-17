@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rda.app.mybatis.mapper.UserMapper">
+	<resultMap id="BaseResultMap" type="com.rda.app.domain.model.User">
+		<id column="ID" jdbcType="DECIMAL" property="id"/>
+		<result column="NAME" jdbcType="VARCHAR" property="name"/>
+	</resultMap>
+	
+	<select id="getById" parameterType="map" resultMap="BaseResultMap">
+		SELECT * FROM user WHERE id = #{id}	
+	</select>
+	
+	<insert id="add" parameterType="map">
+		insert into user values(#{id},#{name})
+	</insert>
+</mapper>

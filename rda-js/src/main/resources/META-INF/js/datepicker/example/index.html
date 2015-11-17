@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <title>test</title>
+    <link rel="stylesheet" href="../../style/jquery.css" />
+</head>
+<body>
+    <input type="text" name="date" id="date" />
+<script type="text/javascript" src="../../seajs/2.0.0/sea.js"></script>
+<script type="text/javascript">
+    seajs.config({
+                     alias:{
+                         'jquery':'jquery/1.9.1/jquery.js'
+                     },
+                     preload : [ 'jquery']
+                 });
+    seajs.use('./index.js');
+</script>
+</body>
+</html>

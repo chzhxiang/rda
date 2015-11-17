@@ -1,0 +1,9 @@
+{
+    "name":"bgiframe",
+    "parent":"../package.json",
+    "version":"2.1.2",
+    "output":{"jquery.bgiframe.js":"."},
+    "dependencies":{
+    	"$":"$"
+    }
+}

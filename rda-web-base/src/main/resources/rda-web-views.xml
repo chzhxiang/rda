@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="
+			http://www.springframework.org/schema/beans 
+			http://www.springframework.org/schema/beans/spring-beans.xsd
+			http://www.springframework.org/schema/mvc
+			http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+	<!-- 此文件包含web-view配置 -->
+	<import resource="rda-web-views-tiles.xml"/>
+	<!--<import resource="rda-web-views-xls.xml"/>-->
+	<!--<import resource="rda-web-views-pdf.xml"/>-->
+
+	<!-- 统一的出错页面 -->
+	<mvc:view-controller path="/error/403" view-name="error.403View" />
+	<mvc:view-controller path="/error/404" view-name="error.404View" />
+	<mvc:view-controller path="/error/500" view-name="error.500View" />
+
+	<!-- 根据客户端的不同的请求决定不同的view进行响应, 如 /blog/1.json /blog/1.xml -->
+	<bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
+		<!-- 设置为true以忽略对Accept Header的支持 -->
+		<property name="ignoreAcceptHeader" value="true" />
+		<property name="defaultContentType" value="text/html" />
+		<property name="contentNegotiationManager" ref="contentNegotiationManager" />
+		<property name="favorParameter" value="false" />
+		<property name="defaultViews">
+			<list>
+				<!-- for application/json -->
+				<bean class="org.springframework.web.servlet.view.json.MappingJackson2JsonView">
+					<!-- prevent JSON Hijacking -->
+					<property name="prefixJson" value="false" />
+				</bean>
+				<!-- for application/xml -->
+				<bean class="org.springframework.web.servlet.view.xml.MarshallingView">
+					<constructor-arg>
+						<bean class="org.springframework.oxm.xstream.XStreamMarshaller">
+							<property name="autodetectAnnotations" value="true" />
+						</bean>
+					</constructor-arg>
+				</bean>
+			</list>
+		</property>
+	</bean>
+	
+	<!-- 所有未能解析的view名称直接解析成WEB-INF/jsp文件下的jsp文件 -->
+	<bean id="defaultViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver" p:order="20">
+        <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
+        <property name="contentType" value="text/html"/>
+        <property name="prefix" value="/WEB-INF/jsp/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+
+	<bean id="contentNegotiationManager" class="org.springframework.web.accept.ContentNegotiationManager">
+		<constructor-arg>
+			<bean class="org.springframework.web.accept.PathExtensionContentNegotiationStrategy">
+				<constructor-arg>
+					<map>
+						<entry key="json" value="application/json" />
+						<entry key="xml" value="application/xml" />
+						<entry key="xls" value="application/vnd.ms-excel" />
+					</map>
+				</constructor-arg>
+			</bean>
+		</constructor-arg>
+	</bean>
+
+</beans>

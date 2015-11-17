@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:jee="http://www.springframework.org/schema/jee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+			http://www.springframework.org/schema/beans 
+			http://www.springframework.org/schema/beans/spring-beans.xsd
+			http://www.springframework.org/schema/jee 
+			http://www.springframework.org/schema/jee/spring-jee.xsd">
+	<!-- pom.xml中要明确依赖soofa-aop -->
+	<import resource="classpath*:rda-aop_spring_aop.xml"/>
+	<!-- 必须要import对应数据库的soofa_datasource_xxx.xml -->
+	<import resource="classpath*:rda-datasource-c3p0.xml" />
+
+	<!--c3p0数据源1 -->
+	<bean id="dataSource1" parent="commonDataSourceConfig">
+		<property name="driverClass" value="oracle.jdbc.driver.OracleDriver" />
+		<property name="jdbcUrl" value="${jdbc1.url}" />
+		<property name="user" value="${jdbc1.username}" />
+		<property name="password" value="${jdbc1.password}" />
+		<!-- 连接池中保留的最小连接数 -->
+		<property name="minPoolSize" value="1" />
+		<!-- 连接池中保留的最大连接数 -->
+		<property name="maxPoolSize" value="${jdbc1.pool.size.max}" />
+	</bean>
+	<!--c3p0数据源2 -->
+	<bean id="dataSource2" parent="commonDataSourceConfig">
+		<property name="driverClass" value="oracle.jdbc.driver.OracleDriver" />
+		<property name="jdbcUrl" value="${jdbc2.url}" />
+		<property name="user" value="${jdbc2.username}" />
+		<property name="password" value="${jdbc2.password}" />
+		<!-- 连接池中保留的最小连接数 -->
+		<property name="minPoolSize" value="1" />
+		<!-- 连接池中保留的最大连接数 -->
+		<property name="maxPoolSize" value="${jdbc2.pool.size.max}" />
+	</bean>
+	<!--c3p0数据源3 -->
+	<bean id="dataSource3" parent="commonDataSourceConfig">
+		<property name="driverClass" value="oracle.jdbc.driver.OracleDriver" />
+		<property name="jdbcUrl" value="${jdbc3.url}" />
+		<property name="user" value="${jdbc3.username}" />
+		<property name="password" value="${jdbc3.password}" />
+		<!-- 连接池中保留的最小连接数 -->
+		<property name="minPoolSize" value="1" />
+		<!-- 连接池中保留的最大连接数 -->
+		<property name="maxPoolSize" value="${jdbc3.pool.size.max}" />
+	</bean>
+
+	<!-- 使用方法：在事务开启前必须先调用CustomerDataSourceContextHolder.setDSType("xxx")完成数据源切换,事务开后调用无效.即在使用了@Transactional的方法内任何地方调用都无效 -->
+	<bean id="dataSource" class="org.soofa.datasource.CustomerRoutingDataSource">
+		<property name="targetDataSources">
+			<map key-type="java.lang.String">
+				<entry key="1" value-ref="dataSource1" />
+				<entry key="2" value-ref="dataSource2" />
+				<entry key="3" value-ref="dataSource3" />
+			</map>
+		</property>
+		<property name="defaultTargetDataSource" ref="dataSource1" />
+	</bean>
+	<!-- 使@RoutingDataSource生效.注意:必须import soofa-aop_spring_aop.xml -->
+	<bean class="org.soofa.datasource.RoutingDataSourceAspect"/>
+</beans>

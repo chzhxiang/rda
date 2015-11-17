@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+			http://www.springframework.org/schema/beans 
+			http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+			http://www.springframework.org/schema/tx 
+			http://www.springframework.org/schema/tx/spring-tx-3.2.xsd
+			http://www.springframework.org/schema/context
+			http://www.springframework.org/schema/context/spring-context-3.2.xsd">
+	<description>多数据源多事务配置示范</description>
+	<!-- 必须import多个数据源配置 -->
+	<bean id="myTxManager1" class="org.springframework.jdbc.datasource.DataSourceTransactionManager" p:dataSource-ref="dataSource1"
+		p:defaultTimeout="3" />
+	<bean id="myTxManager2" class="org.springframework.jdbc.datasource.DataSourceTransactionManager" p:dataSource-ref="dataSource2"
+		p:defaultTimeout="3" />
+	<!--Activates @Transactional or @Transactional(readOnly = true) for Database -->
+	<!-- 注意，必须确保包含<context:load-time-weaver />使@Transactional避免self-invocation导致事务失效  -->
+	<!-- order设置为200是为了确保自定义的AOP拦截器能先于此拦截器运行,order值越小,就在越外层,越外层就越先被调用,mode="aspectj"模式能确保了能支持self-invocation的事务 -->
+	<tx:annotation-driven transaction-manager="myTxManager1" proxy-target-class="true" order="200" mode="proxy"/>
+	<tx:annotation-driven transaction-manager="myTxManager2" proxy-target-class="true" order="200" mode="proxy"/>
+	<!-- 使用示范:@Transactional("transactionManager1")或者@Transactional("transactionManager2") -->
+</beans>

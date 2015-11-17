@@ -1,0 +1,11 @@
+{
+    "name":"password",
+    "version":"1.0.0",
+    "parent":"../package.json",
+    "output":{
+        "password.js":"."
+    },
+    "dependencies":{
+    	"$":"$"
+    }
+}

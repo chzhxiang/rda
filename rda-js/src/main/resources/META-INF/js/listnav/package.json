@@ -1,0 +1,12 @@
+{
+    "name":"listnav",
+    "parent":"../package.json",
+    "version":"2.1.0",
+    "output":{
+        "listnav.js":"."
+    },
+    "dependencies":{
+    	"$":"$",
+        "cookie":"taurus/cookie/1.0.0/jquery.cookie"
+    }
+}

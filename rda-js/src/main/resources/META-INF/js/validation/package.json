@@ -1,0 +1,9 @@
+{
+    "name":"validation",
+    "parent":"../package.json",
+    "version":"1.11.0",
+    "output":{"validation.js":"."},
+    "dependencies":{
+    	"$":"$"
+    }
+}

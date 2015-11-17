@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <title>test</title>
+    <link rel="stylesheet" href="../../style/bootstrap.css" />
+    <link rel="stylesheet" href="../../style/jquery.css" />
+    <style type="text/css">
+        .ui-menu { width: 150px; }
+    </style>
+</head>
+<body>
+<ul id="menu">
+    <li class="ui-state-disabled"><a href="#">Aberdeen</a></li>
+    <li><a href="#">Ada</a></li>
+    <li><a href="#">Adamsville</a></li>
+    <li><a href="#">Addyston</a></li>
+    <li>
+        <a href="#">Delphi</a>
+        <ul>
+            <li class="ui-state-disabled"><a href="#">Ada</a></li>
+            <li><a href="#">Saarland</a></li>
+            <li><a href="#">Salzburg</a></li>
+        </ul>
+    </li>
+    <li><a href="#">Saarland</a></li>
+    <li>
+        <a href="#">Salzburg</a>
+        <ul>
+            <li>
+                <a href="#">Delphi</a>
+                <ul>
+                    <li><a href="#">Ada</a></li>
+                    <li><a href="#">Saarland</a></li>
+                    <li><a href="#">Salzburg</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">Delphi</a>
+                <ul>
+                    <li><a href="#">Ada</a></li>
+                    <li><a href="#">Saarland</a></li>
+                    <li><a href="#">Salzburg</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Perch</a></li>
+        </ul>
+    </li>
+    <li class="ui-state-disabled"><a href="#">Amesville</a></li>
+</ul>
+
+<div class="demo-description">
+    <p>A menu with the default configuration, disabled items and nested menus. A list is transformed, adding theming, mouse and keyboard navigation support. Try to tab to the menu then use the cursor keys to navigate.</p>
+</div>
+<script type="text/javascript" src="../../seajs/2.0.0/sea.js"></script>
+<script type="text/javascript">
+    seajs.config({
+                     alias:{
+                         'jquery':'jquery/1.9.1/jquery.js'
+                     },
+                     preload : [ 'jquery']
+                 });
+    seajs.use('./index.js');
+</script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <title>test</title>
+    <style type="text/css">
+        .placeholder {  color:#aaa; }
+    </style>
+</head>
+<body>
+<p><input id="i-1" placeholder="我是placeholder哦"></p>
+<p><button id="b-1">点我获取input的value</button></p>
+
+<script type="text/javascript" src="../../seajs/2.0.0/sea.js"></script>
+<script type="text/javascript">
+    seajs.config({
+                     alias:{
+                         'jquery':'jquery/1.9.1/jquery.js'
+                     },
+                     preload : [ 'jquery']
+                 });
+    seajs.use('./index.js');
+</script>
+</body>
+</html>

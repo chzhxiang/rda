@@ -1,0 +1,11 @@
+{
+    "name":"hotkeys",
+    "version":"1.0.0",
+    "parent":"../package.json",
+    "output":{
+        "hotkeys.js":"."
+    },
+    "dependencies":{
+    	"$":"$"
+    }
+}

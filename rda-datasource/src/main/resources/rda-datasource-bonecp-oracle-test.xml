@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+			http://www.springframework.org/schema/beans 
+			http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<import resource="classpath*:rda-datasource-bonecp-test.xml"/>
+	<bean id="dataSource" parent="commonDataSourceConfig">
+		<property name="driverClass" value="oracle.jdbc.driver.OracleDriver" />
+		<property name="jdbcUrl" value="${jdbc.url}" />
+		<property name="username" value="${jdbc.username}" />
+		<property name="password" value="${jdbc.password}" />
+		<!-- 连接池中保留的最小连接数    -->
+	    <property name="minConnectionsPerPartition" value="2"/>      
+	    <!-- 连接池中保留的最大连接数    --> 
+	    <property name="maxConnectionsPerPartition" value="10"/>    
+	</bean>
+</beans>

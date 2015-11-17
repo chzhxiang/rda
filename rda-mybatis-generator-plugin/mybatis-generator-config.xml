@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+	<!-- 此文件用于生成数据库表model和基本sqlmap -->
+<!-- 	<classPathEntry location="g:/Repository/Central/com/oracle/ojdbc6/11.2.0.1.0/ojdbc6-11.2.0.1.0.jar" /> -->
+	<classPathEntry location="F:/gradle-cache/caches/modules-2/files-2.1/com.h2database/h2/1.4.179/689c840eeb2b393a99b836ac388e239e764c29d1/h2-1.4.179.jar"/>
+	<context id="rmsGenerator" targetRuntime="MyBatis3">
+
+		<property name="javaFileEncoding" value="UTF-8" />
+
+		<plugin type="com.rda.plugin.mybatis.RenameFileNamePlugin">
+			<property name="searchString" value="T_" />
+			<property name="replaceString" value="" />
+			<property name="prefix" value="" />
+			<property name="suffix" value="_SqlMap.xml" />
+		</plugin>
+
+		<plugin type="com.rda.plugin.mybatis.AddAnnotationsAndImportsPlugin">
+			<property name="imports" value="com.tdr.cs.tms.mybatis.annotation.Mapper,java.util.List,org.apache.ibatis.annotations.Param" />
+			<property name="annotations" value="@Mapper" />
+		</plugin>
+
+		<plugin type="com.rda.plugin.mybatis.SelectByModelWithPagingSelectivePlugin"/>
+		<plugin type="com.rda.plugin.mybatis.CountByModelSelectivePlugin"/>
+		<plugin type="com.rda.plugin.mybatis.DeleteByModelSelectivePlugin"/>
+		<plugin type="com.rda.plugin.mybatis.UpdateByModelSelectivePlugin"/>
+		<plugin type="com.rda.plugin.mybatis.DynamicModelSqlPlugin"/>
+		<plugin type="com.rda.plugin.mybatis.SelectByModelSelectivePlugin"></plugin>
+
+		<plugin type="org.mybatis.generator.plugins.ToStringPlugin" />
+
+		<!-- <commentGenerator type="org.mybatis.generator.internal.DefaultCommentGenerator"></commentGenerator> -->
+
+<!-- 		<jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver" connectionURL="jdbc:oracle:thin:@172.16.5.81:1521:kftdb" userId="my_rms" -->
+<!-- 			password="my_rms" /> -->
+			
+		<jdbcConnection driverClass="org.h2.Driver" connectionURL="jdbc:h2:file:d:/data/tms;MODE=Oracle;AUTO_SERVER=TRUE" userId="sa" password=""></jdbcConnection>
+
+		<javaTypeResolver>
+			<property name="forceBigDecimals" value="false" />
+		</javaTypeResolver>
+
+		<javaModelGenerator targetPackage="com.tdr.cs.tms.token" targetProject="tms\src\main\java">
+			<property name="enableSubPackages" value="false" />
+			<property name="trimStrings" value="true" />
+		</javaModelGenerator>
+
+		<sqlMapGenerator targetPackage="sqlmap" targetProject="tms\src\main\resources">
+			<property name="enableSubPackages" value="false" />
+		</sqlMapGenerator>
+
+		<javaClientGenerator targetPackage="com.tdr.cs.tms.token" targetProject="tms\src\main\java" type="XMLMAPPER">
+			<property name="enableSubPackages" value="false" />
+		</javaClientGenerator>
+		
+		
+		<table tableName="T_TOKEN"
+		enableSelectByExample="false" enableDeleteByExample="false"
+		enableCountByExample="false" enableUpdateByExample="false"
+		selectByExampleQueryId="false" domainObjectName="Token">
+		<property name="ignoreQualifiersAtRuntime" value="true" />
+		<generatedKey column="id" sqlStatement="select SEQ_TOKEN_ID.NEXTVAL as value FROM DUAL" />
+		</table>
+
+	</context>
+</generatorConfiguration>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+			http://www.springframework.org/schema/beans 
+			http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<import resource="classpath*:rda-datasource-c3p0.xml"/>
+	
+	<!--用于生产环境连接JNDI数据源 -->
+	<!--<jee:jndi-lookup id="dataSource" jndi-name="jdbc/portalapps" />-->
+	<!--用于开发环境连接c3p0数据源 -->
+	<bean id="dataSource" parent="commonDataSourceConfig">
+		<property name="driverClass" value="org.hsqldb.jdbcDriver" />
+		<property name="jdbcUrl" value="${jdbc.url}" />
+		<property name="user" value="${jdbc.username}" />
+		<property name="password" value="${jdbc.password}" />
+		<!-- 连接池中保留的最小连接数    -->
+	    <property name="minPoolSize" value="1"/>      
+	    <!-- 连接池中保留的最大连接数    --> 
+	    <property name="maxPoolSize" value="${jdbc.pool.size.max}"/>    
+	</bean>
+</beans>

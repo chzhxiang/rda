@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mybatis="http://mybatis.org/schema/mybatis-spring"
+	xsi:schemaLocation="
+			http://www.springframework.org/schema/beans 
+			http://www.springframework.org/schema/beans/spring-beans.xsd
+			http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring.xsd">
+	<!-- 此配置包含mybatis读写分离 -->
+
+	<mybatis:scan base-package="**.mapper,**.mapper.**" annotation="com.rda.mybatis.annotation.Mapper" template-ref="sqlSessionTemplate"/>
+
+
+	<!-- mybatis 分页 interceptor(使用oracle dialet生成分页语句) -->
+	<bean id="paginationInterceptor" class="com.rda.mybatis.interceptors.paging.PageInterceptor">
+		<property name="dialect" ref="dialect" />
+	</bean>
+	<bean id="dialect" class="com.rda.mybatis.interceptors.paging.dialect.OracleDialect" />
+
+	<!-- mybatis 读写分离 interceptor -->
+	<bean id="rwInterceptor" class="com.rda.mybatis.interceptors.rw.RwInterceptor" />
+
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="mapperLocations" value="classpath*:mapper/**.xml" />
+		<property name="configLocation" value="classpath:rda-orm-mybatis-config.xml" />
+		<property name="plugins">
+			<array>
+				<ref local="rwInterceptor" />
+<!-- 				<ref local="paginationInterceptor" /> -->
+			</array>
+		</property>
+	</bean>
+
+	<bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg ref="sqlSessionFactory" />
+	</bean>
+
+	<!-- <bean id="monitor" class="org.springframework.aop.interceptor.PerformanceMonitorInterceptor"></bean> -->
+	<!-- <aop:config> -->
+	<!-- <aop:pointcut expression="execution(* com.taofang.smc.persistence..*.*(..))" id="my_pc"/> -->
+	<!-- <aop:advisor advice-ref="monitor" pointcut-ref="my_pc"/> -->
+	<!-- </aop:config> -->
+
+</beans>

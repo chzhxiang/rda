@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security" xmlns:beans="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+			http://www.springframework.org/schema/beans 
+			http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+			http://www.springframework.org/schema/security
+			http://www.springframework.org/schema/security/spring-security-3.1.xsd">
+	<!-- Spring Security 安全配置 -->
+	
+	<!-- 不需要spring security保护的资源,一个Ant路径一个http配置 -->
+	<http security="none" pattern="/js/**" />
+	<http security="none" pattern="/css/**" />
+	<http security="none" pattern="/images/**" />
+
+	<!-- 需要spring security保护的资源 -->
+	<http auto-config="true" entry-point-ref="casEntryPoint">
+		<intercept-url pattern="/**" access="ROLE_USER" />
+		<form-login always-use-default-target="true" default-target-url="/user" />
+		<logout logout-success-url="/" logout-url="/logout" invalidate-session="true" delete-cookies="JSESSIONID" />
+		<session-management session-fixation-protection="newSession" />
+		<custom-filter position="FIRST" ref="casSignOutFilter"/>
+		<custom-filter position="CAS_FILTER" ref="casFilter" />
+	</http>
+	 
+	<!-- 这个元素用来在你的应用程序中启用基于安全的注解 -->
+	<!-- <global-method-security secured-annotations="enabled" jsr250-annotations="enabled" pre-post-annotations="enabled"> -->
+	<!-- <protect-pointcut expression="execution(* com.mycompany.*Service.*(..))" access="ROLE_USER"/> -->
+	<!-- </global-method-security> -->
+	
+	<user-service id="userService">
+		<user name="joe" password="joe" authorities="ROLE_USER" />
+	</user-service>
+	
+	<authentication-manager alias="authenticationManager">
+		<authentication-provider ref="casAuthenticationProvider" />
+	</authentication-manager>
+	
+	<beans:import resource="classpath:spring-spring-security-cas.xml"/>
+</beans:beans>

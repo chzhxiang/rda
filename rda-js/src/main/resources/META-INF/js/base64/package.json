@@ -1,0 +1,9 @@
+{
+    "name":"base64",
+    "parent":"../package.json",
+    "version":"1.0.0",
+    "output":{"base64.js":"."},
+    "dependencies":{
+    	"$":"$"
+    }
+}

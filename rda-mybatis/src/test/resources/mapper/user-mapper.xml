@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rda.mybatis.test.mapper.UserMapper">
+	<resultMap id="BaseResultMap" type="com.rda.mybatis.test.model.User">
+		<id column="ID" jdbcType="NUMERIC" property="id"/>
+		<result column="NAME" jdbcType="VARCHAR" property="name"/>
+	</resultMap>
+	
+	<select id="getUser" parameterType="map" resultMap="BaseResultMap" >
+		SELECT * FROM user WHERE id = #{id}	
+	</select>
+	
+	<select id="getUserWithEnum" parameterType="com.rda.mybatis.test.model.MyEnum" resultMap="BaseResultMap">
+		SELECT * FROM user WHERE id = #{id,jdbcType=NUMERIC}
+	</select>
+	
+	<select id="getUserByLike" parameterType="map" resultMap="BaseResultMap">
+		select * from user where name like '%' || #{name,jdbcType=VARCHAR} || '%'
+	</select>
+</mapper>

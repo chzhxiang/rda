@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cache="http://www.springframework.org/schema/cache"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="
+			http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+			http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache.xsd">
+	<!-- 此文件包含cache相关配置 -->
+	<!-- 注意order需要比spring-tx中配置的tx:annotation-driven的order=200小,order值越小,就在越外层,越外层就越先被调用 -->
+	<cache:annotation-driven cache-manager="cacheManager" order="199" />
+
+	<!-- generic cache manager -->
+	<bean id="cacheManager" class="org.springframework.cache.support.SimpleCacheManager">
+		<property name="caches">
+			<set>
+				<bean class="org.springframework.cache.concurrent.ConcurrentMapCacheFactoryBean" p:name="default" />
+				<bean class="org.springframework.cache.concurrent.ConcurrentMapCacheFactoryBean" p:name="users" />
+			</set>
+		</property>
+	</bean>
+
+<!-- 	<bean id="cacheManager" class="org.springframework.cache.ehcache.EhCacheCacheManager" p:cacheManager-ref="ehcache" /> -->
+	<!-- EhCache library setup -->
+<!-- 	<bean id="ehcache" class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean" p:configLocation="classpath:conf/spring-cache-ehcache.xml" /> -->
+</beans>

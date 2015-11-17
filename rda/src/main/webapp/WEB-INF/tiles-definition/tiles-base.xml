@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+	<!-- 页面框架定义 -->
+	<!-- 空白子菜单 -->
+	<definition name="common.header" template="/WEB-INF/views/common/header.jsp" />
+
+	<definition name="mainlayout" template="/WEB-INF/views/common/mainLayout.jsp">
+		<put-attribute name="header" type="definition" value="common.header"/>
+	</definition>
+	
+	<definition name="user" extends="mainlayout" >
+		<put-attribute name="content" value="/WEB-INF/views/example/example.jsp"/>
+	</definition>
+	
+	<definition name="home" extends="mainlayout">
+		<put-attribute name="content" value="/WEB-INF/views/home.jsp"/>
+	</definition>
+	
+	<definition name="login" extends="mainlayout">
+		<put-attribute name="content" value="/WEB-INF/views/identity/login.jsp"/>
+	</definition>
+	
+	<definition name="register" extends="mainlayout">
+		<put-attribute name="content" value="/WEB-INF/views/identity/register.jsp"/>
+	</definition>
+	
+	<definition name="registration" extends="mainlayout">
+		<put-attribute name="content" value="/WEB-INF/views/identity/registration.jsp"/>
+	</definition>
+</tiles-definitions>
+
+   

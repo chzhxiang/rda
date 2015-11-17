@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" 
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	xsi:schemaLocation="
+			http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+			 http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+	<dubbo:application name="com.rda.service.provider"/>
+	<dubbo:monitor address="localhost:7070"></dubbo:monitor>
+	<dubbo:registry protocol="zookeeper" address="127.0.0.1:19555" />
+	<dubbo:protocol name="dubbo" port="20880" />
+	
+	<!-- which service interface do we expose? -->
+    <dubbo:service interface="com.rda.services.DemoService" ref="demoService" />
+ 
+    <!-- designate implementation -->
+    <bean id="demoService" class="com.rda.services.impl.DemoServiceImpl" />
+ 
+</beans>

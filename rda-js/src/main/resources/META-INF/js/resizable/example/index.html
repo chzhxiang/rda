@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <title>test</title>
+    <link rel="stylesheet" href="../../style/jquery.css" />
+    <style>
+        #resizable { width: 150px; height: 150px; padding: 0.5em; }
+        #resizable h3 { text-align: center; margin: 0; }
+    </style>
+</head>
+<body>
+<div id="resizable" class="ui-widget-content">
+    <h3 class="ui-widget-header">Resizable</h3>
+</div>
+<script type="text/javascript" src="../../seajs/2.0.0/sea.js"></script>
+<script type="text/javascript">
+    seajs.config({
+                     alias:{
+                         'jquery':'jquery/1.9.1/jquery.js'
+                     },
+                     preload : [ 'jquery']
+                 });
+    seajs.use('./index.js');
+</script>
+</body>
+</html>

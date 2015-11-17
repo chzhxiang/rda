@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <option name="DEFAULT_COMPILER" value="Javac" />
+    <resourceExtensions />
+    <wildcardResourcePatterns>
+      <entry name="!?*.java" />
+      <entry name="!?*.form" />
+      <entry name="!?*.class" />
+      <entry name="!?*.groovy" />
+      <entry name="!?*.scala" />
+      <entry name="!?*.flex" />
+      <entry name="!?*.kt" />
+      <entry name="!?*.clj" />
+    </wildcardResourcePatterns>
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="false">
+        <processorPath useClasspath="true" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel target="1.6" />
+  </component>
+  <component name="CopyrightManager" default="" />
+  <component name="DependencyValidationManager">
+    <option name="SKIP_IMPORT_STATEMENTS" value="false" />
+  </component>
+  <component name="Encoding" useUTFGuessing="true" native2AsciiForPropertiesFiles="true" defaultCharsetForPropertiesFiles="UTF-8">
+    <file url="PROJECT" charset="UTF-8" />
+  </component>
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$" />
+  </component>
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+          </set>
+        </option>
+        <option name="useAutoImport" value="true" />
+      </GradleProjectSettings>
+    </option>
+  </component>
+  <component name="JRebel Project data">
+    <option name="privateKey" value="3082025c0201000281810097f8221a8864a1258de5d77d57da129b65f2fa6853bf5b83ce3cdfbddb6ff8d42c8ac8f240ec633abcb4e08db8cbc5ca78d5f05b1e617d5fa675892dbb1d87a2e75fb8afc76318b66925ea91e0ff7aa839173b059ab47d1e4f8c4b74af6d601ad82601f354790f8910be0c7697bf067def7cbea9660320f90f1173cb58e3d9b302030100010281807bb93caab5589809e718b4f40b4e33cfe8948561e2acec68c6c3b0b4f5ae97bac5f8c7d8d31aa13ef4db9de6440942a2b0f61c95528ab473e725d1e5356db93a9a4c49166a7010acfb190cd6c10642883fbafbdafe1d78fc5b58fe820a1ee1775afb52271308a55688f51856c9f6af11f8d0e34741d1f9fc8db0b41f7c560a41024100c793574cddbcf51815d3efa3fba4ba1c2d1339be69c09d3528faa2a1142b103ee58b3a40f6e21d37c2b4180b4e295d2c1c1e8f2c5a7bf3b1b1c86319055be08b024100c2ef3286b045cce2b01a61b8c3926e077f4918fd5eb4297bc655a828d59df479e00d6d3bed5195dfd9d09a72c2deb84455970cec5a3a556a7cad5f4e3343287902401b732290c9f6d1672ca967ce90300a01121a10d925c67e58ef77f9a25a19ca343c7237e2f3920a1ebf42f203ac0e786836bde5475e72aa0408c5dd0b75f73b1d024100bf2764baa35caf3f94452a92ce6567343ee365780048576da2de185a82afb42f5740935f72a6d07b84d284c208c9f294400231900c22abe41282c8b49c9c3cb102403fbeed317741d8aa82c00f7cacfd4409f0e2ea11ba4817d5b5ec5e821bb2a2a3b53d06701615127aef53d94bf0d684f350699dd940b16d31e56ab2eebc51e25b" />
+    <option name="publicKey" value="3081890281810097f8221a8864a1258de5d77d57da129b65f2fa6853bf5b83ce3cdfbddb6ff8d42c8ac8f240ec633abcb4e08db8cbc5ca78d5f05b1e617d5fa675892dbb1d87a2e75fb8afc76318b66925ea91e0ff7aa839173b059ab47d1e4f8c4b74af6d601ad82601f354790f8910be0c7697bf067def7cbea9660320f90f1173cb58e3d9b30203010001" />
+  </component>
+  <component name="ProjectDictionaryState">
+    <dictionary name="lianrao" />
+  </component>
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/spring-boot-demo.iml" filepath="$PROJECT_DIR$/spring-boot-demo.iml" />
+    </modules>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_6" assert-keyword="true" jdk-15="true" project-jdk-name="1.7" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+  <component name="VcsDirectoryMappings">
+    <mapping directory="" vcs="" />
+  </component>
+  <component name="libraryTable">
+    <library name="Gradle: hamcrest-core-1.3">
+      <CLASSES>
+        <root url="jar://F:/gradle-cache/caches/modules-2/files-2.1/org.hamcrest/hamcrest-core/1.3/42a25dc3219429f0e5d060061f71acb49bf010a0/hamcrest-core-1.3.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES>
+        <root url="jar://F:/gradle-cache/caches/modules-2/files-2.1/org.hamcrest/hamcrest-core/1.3/1dc37250fbc78e23a65a67fbbaf71d2e9cbc3c0b/hamcrest-core-1.3-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Gradle: junit-4.11">
+      <CLASSES>
+        <root url="jar://F:/gradle-cache/caches/modules-2/files-2.1/junit/junit/4.11/4e031bb61df09069aeb2bffb4019e7a5034a4ee0/junit-4.11.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES>
+        <root url="jar://F:/gradle-cache/caches/modules-2/files-2.1/junit/junit/4.11/28e0ad201304e4a4abf999ca0570b7cffc352c3c/junit-4.11-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Gradle: unresolved_dependency___junit_junit_4_11">
+      <CLASSES>
+        <root url="file://$PROJECT_DIR$/unresolved dependency - junit junit 4.11" />
+        <root url="file://$PROJECT_DIR$/unresolved dependency - junit junit 4.11" />
+        <root url="file://$PROJECT_DIR$/unresolved dependency - junit junit 4.11" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES />
+    </library>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="Copyright.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.6</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.6</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ScopeChooserConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>
+

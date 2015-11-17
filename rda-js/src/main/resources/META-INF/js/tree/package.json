@@ -1,0 +1,14 @@
+{
+    "name":"tree",
+    "parent":"../package.json",
+    "version":"3.5.02",
+    "output":{
+        "tree.core.js":".",
+        "tree.excheck.js":".",
+        "tree.exedit.js":".",
+        "tree.exhide.js":"."
+    },
+    "dependencies":{
+    	"$":"$"
+    }
+}

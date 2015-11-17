@@ -1,0 +1,14 @@
+{
+    "name":"draggable",
+    "version":"1.10.0",
+    "parent":"../package.json",
+    "output":{
+        "jquery.ui.draggable.js":"."
+    },
+    "dependencies":{
+    	"$":"$",
+        "core":"taurus/core/1.10.0/jquery.ui.core",
+        "widget":"taurus/core/1.10.0/jquery.ui.widget",
+        "mouse":"taurus/mouse/1.10.0/jquery.ui.mouse"
+    }
+}

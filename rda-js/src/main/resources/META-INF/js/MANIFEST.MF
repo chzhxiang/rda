@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Archiver-Version: Plexus Archiver
+Created-By: Apache Maven
+Built-By: Administrator
+Build-Jdk: 1.7.0_05
+Specification-Title: taurus
+Specification-Version: 0.0.3-SNAPSHOT
+Specification-Vendor: Soofa Team
+Implementation-Title: taurus
+Implementation-Version: 0.0.3-SNAPSHOT
+Implementation-Vendor-Id: org.soofa
+Implementation-Vendor: Soofa Team
+

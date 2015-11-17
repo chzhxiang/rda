@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<!-- mybatis配置文件 -->
+<configuration>
+	<settings>
+		 <!-- 避免local session cache造成在同一个事务中多次select不会去实际查数据库的问题 -->
+		<setting name="localCacheScope" value="STATEMENT"/>
+	</settings>
+</configuration>

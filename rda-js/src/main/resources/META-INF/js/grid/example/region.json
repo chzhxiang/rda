@@ -1,0 +1,72 @@
+{"regions": [
+    {
+        "name": "北京",
+        "id": 1,
+        "createDate": 1310816168000,
+        "code": "1",
+        "parentId": 1
+    },
+    {
+        "name": "上海",
+        "id": 2,
+        "createDate": 1310816168000,
+        "code": "2",
+        "parentId": 1
+    },
+    {
+        "name": "天津",
+        "id": 3,
+        "createDate": 1310816168000,
+        "code": "3",
+        "parentId": 1
+    },
+    {
+        "name": "重庆",
+        "id": 4,
+        "createDate": 1310816168000,
+        "code": "4",
+        "parentId": 1
+    },
+    {
+        "name": "河北",
+        "id": 5,
+        "createDate": 1310816168000,
+        "code": "5",
+        "parentId": 1
+    },
+    {
+        "name": "山西",
+        "id": 6,
+        "createDate": 1310816168000,
+        "code": "6",
+        "parentId": 1
+    },
+    {
+        "name": "河南",
+        "id": 7,
+        "createDate": 1310816168000,
+        "code": "7",
+        "parentId": 1
+    },
+    {
+        "name": "辽宁",
+        "id": 8,
+        "createDate": 1310816168000,
+        "code": "8",
+        "parentId": 1
+    },
+    {
+        "name": "吉林",
+        "id": 9,
+        "createDate": 1310816168000,
+        "code": "9",
+        "parentId": 1
+    },
+    {
+        "name": "深圳",
+        "id": 10,
+        "createDate": 1310816168000,
+        "code": "1",
+        "parentId": 1
+    }
+], "total": 47}

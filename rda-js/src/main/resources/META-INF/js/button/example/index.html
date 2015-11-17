@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <title>test</title>
+    <link rel="stylesheet" href="../../style/jquery.css" />
+</head>
+<body>
+<style>
+    #format { margin-top: 2em; }
+</style>
+<div class="container mt70">
+    <h1>简易按钮控件Button</h1>
+    <div class="shadowbox">
+        <p>Default</p>
+        <div id="default">
+            <button>A button element</button>
+
+            <input type="submit" value="A submit button">
+
+            <a href="#">An anchor</a>
+        </div>
+    </div>
+    <div class="shadowbox">
+        <p>Radio</p>
+        <div id="radio">
+            <input type="radio" id="radio1" name="radio" /><label for="radio1">Choice 1</label>
+            <input type="radio" id="radio2" name="radio" checked="checked" /><label for="radio2">Choice 2</label>
+            <input type="radio" id="radio3" name="radio" /><label for="radio3">Choice 3</label>
+        </div>
+    </div>
+    <div class="shadowbox">
+        <p>Checkboxes</p>
+        <input type="checkbox" id="check" /><label for="check">Toggle</label>
+
+        <div id="format">
+            <input type="checkbox" id="check1" /><label for="check1">B</label>
+            <input type="checkbox" id="check2" /><label for="check2">I</label>
+            <input type="checkbox" id="check3" /><label for="check3">U</label>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="../../seajs/2.0.0/sea.js"></script>
+<script type="text/javascript">
+    seajs.config({
+                     alias:{
+                         'jquery':'jquery/1.9.1/jquery.js'
+                     },
+                     preload : [ 'jquery']
+                 });
+    seajs.use('./index.js');
+</script>
+</body>
+</html>

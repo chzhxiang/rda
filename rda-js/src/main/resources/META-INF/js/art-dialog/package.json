@@ -1,0 +1,9 @@
+{
+    "name":"art-dialog",
+    "parent":"../package.json",
+    "version":"4.1.6",
+    "output":{"dialog.js":"."},
+    "dependencies":{
+    	"$":"$"
+    }
+}

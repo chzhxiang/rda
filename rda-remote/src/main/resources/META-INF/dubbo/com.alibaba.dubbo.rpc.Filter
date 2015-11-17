@@ -1,0 +1,3 @@
+log=com.neo.xnol.mobile.gateway.service.RemoteLogFilter
+xid=com.rda.remoting.dubbo.filters.RemoteXidFilter
+exceptionWrapper=com.rda.remoting.dubbo.filters.BizExceptionWrapperFilter

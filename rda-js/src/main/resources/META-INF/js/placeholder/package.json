@@ -1,0 +1,11 @@
+{
+    "name":"placeholder",
+    "version":"1.0.0",
+    "parent":"../package.json",
+    "output":{
+        "placeholder.js":"."
+    },
+    "dependencies":{
+    	"$":"$"
+    }
+}

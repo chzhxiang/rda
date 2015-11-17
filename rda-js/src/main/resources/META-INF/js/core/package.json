@@ -1,0 +1,12 @@
+{
+    "name":"core",
+    "parent":"../package.json",
+    "version":"1.10.0",
+    "output":{
+        "jquery.ui.core.js":".",
+        "jquery.ui.widget.js":"."
+    },
+    "dependencies":{
+    	"$":"$"
+    }
+}

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="
+			http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<!-- 此文件包含excel相关配置 -->
+
+	<bean class="org.springframework.web.servlet.view.ResourceBundleViewResolver" p:order="1">
+		<property name="basename" value="conf.excel-views" />
+	</bean>
+</beans>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="
+			http://www.springframework.org/schema/beans 
+			http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+			http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+	<!-- shiro cas 配置 -->
+
+	<bean name="casFilter" class="org.apache.shiro.cas.CasFilter">
+		<property name="successUrl" value="/home" />
+	</bean>
+	
+	<bean name="casLogoutFilter" class=" org.apache.shiro.web.filter.authc.LogoutFilter">
+		<property name="redirectUrl" value="https://etwin-ttom:8443/cas/logout?service=http://app1.et-win.com:8081/rda/user"/>
+	</bean>
+
+	<bean name="casRealm" class="org.apache.shiro.cas.CasRealm">
+		<property name="casServerUrlPrefix" value="https://etwin-ttom:8443/cas/"/>
+		<property name="casService" value="http://app1.et-win.com:8081/rda/login"/>
+		<property name="defaultRoles" value="admin,user"/>
+	</bean>
+	
+	<!-- CAS单点登出 -->
+<!-- 	<bean id="casSignOutFilter" class="org.jasig.cas.client.session.SingleSignOutFilter"/> -->
+</beans>

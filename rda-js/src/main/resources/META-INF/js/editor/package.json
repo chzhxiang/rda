@@ -1,0 +1,6 @@
+{
+    "name":"editor",
+    "parent":"../package.json",
+    "version":"4.1.5",
+    "output":{"kindeditor.js":"."}
+}

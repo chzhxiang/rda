@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <title>test</title>
+    <link rel="stylesheet" href="../../style/bootstrap.css">
+    <link rel="stylesheet" href="../../style/jquery.css" />
+    <!--[if IE]>
+    <link rel="stylesheet" type="text/css" href="../../style/jquery.ie.css"/>
+    <![endif]-->
+</head>
+<body>
+<h2 class="demoHeaders">Accordion</h2>
+<div id="accordion">
+    <div>
+        <h3><a href="#">First</a></h3>
+        <div>Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</div>
+    </div>
+    <div>
+        <h3><a href="#">Second</a></h3>
+        <div>Phasellus mattis tincidunt nibh.</div>
+    </div>
+    <div>
+        <h3><a href="#">Third</a></h3>
+        <div>Nam dui erat, auctor a, dignissim quis.</div>
+    </div>
+</div>
+<script type="text/javascript" src="../../seajs/2.0.0/sea.js"></script>
+<script type="text/javascript">
+    seajs.config({
+                     alias:{
+                         'jquery':'jquery/1.9.1/jquery.js'
+                     },
+                     preload : [ 'jquery']
+                 });
+    seajs.use('./index.js');
+</script>
+</body>
+</html>

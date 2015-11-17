@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <title>Demo For AutoComplete.js</title>
+    <link rel="stylesheet" type="text/css" href="../../style/autocomplete.css"/>
+    <style type="text/css">
+        body {
+            margin: 0;
+            background: #f4f4f4;
+            font-family: Helvetica Neue, Helvetica, Arial,serif;
+        }
+    </style>
+</head>
+<body>
+    <div style="background-color:black;height:40px;margin-bottom:10px;">
+        <div style="width:1000px;margin:auto;height:100%;color:white;"><span style="font-size:20px;line-height:40px;">jQuery.AutoComplete 自动补全插件</span><span style="float:right;line-height:40px;"><a href="../doc/index.html" style="color:white;font-size:12px;text-decoration:none;" target="_blank">API文档</a></span></div>
+    </div>
+    <div style="width:1000px;margin:auto;">
+        <div style="display:table-cell;">
+            <div style="height:503px;width:330px;">
+                <input type="text" id="down" value="e"><span style="font-weight:bold;font-size:13px;">补全列表在下方</span>
+            </div>
+            <div>
+                <input type="text" id="up" value="e"><span style="font-weight:bold;font-size:13px;">补全列表在上方</span>
+            </div>
+        </div>
+        <div style="display:table-cell;width:330px;">
+            <input type="text" id="iconlist" value="c"/><span style="font-weight:bold;font-size:13px;">图标文本样式</span>
+        </div>
+        <div style="display:table-cell;width:330px;">
+            <input type="text" id="custom" value="队"/><span style="font-weight:bold;font-size:13px;">自定义样式</span>
+        </div>
+    </div>
+    <script type="text/javascript" src="../../seajs/2.0.0/sea.js"></script>
+    <script type="text/javascript">
+        seajs.config({
+                         alias:{
+                             'jquery':'jquery/1.9.1/jquery.js'
+                         },
+                         preload : [ 'jquery']
+                     });
+        seajs.use('./index.js');
+    </script>
+</body>

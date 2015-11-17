@@ -1,0 +1,9 @@
+{
+    "name":"block",
+    "parent":"../package.json",
+    "version":"2.57.0",
+    "output":{"block.js":"."},
+    "dependencies":{
+    	"$":"$"
+    }
+}

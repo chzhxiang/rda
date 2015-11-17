@@ -1,0 +1,12 @@
+{
+    "name":"datatables",
+    "parent":"../package.json",
+    "version":"1.9.4",
+    "output":{
+        "jquery.datatables.js":".",
+        "jquery.jeditable.js" :"."
+    },
+    "dependencies":{
+    	"$":"$"
+    }
+}

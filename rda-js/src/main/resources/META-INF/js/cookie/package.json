@@ -1,0 +1,9 @@
+{
+    "name":"cookie",
+    "parent":"../package.json",
+    "version":"1.0.0",
+    "output":{"jquery.cookie.js":"."},
+    "dependencies":{
+    	"$":"$"
+    }
+}

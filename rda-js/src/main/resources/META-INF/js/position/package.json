@@ -1,0 +1,11 @@
+{
+    "name":"position",
+    "version":"1.10.0",
+    "parent":"../package.json",
+    "output":{
+        "jquery.ui.position.js":"."
+    },
+    "dependencies":{
+    	"$":"$"
+    }
+}

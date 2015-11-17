@@ -1,0 +1,16 @@
+{
+    "name":"dialog",
+    "parent":"../package.json",
+    "version":"1.10.0",
+    "output":{"dialog.js":"."},
+    "dependencies":{
+    	"$":"$",
+        "core":"taurus/core/1.10.0/jquery.ui.core",
+        "widget":"taurus/core/1.10.0/jquery.ui.widget",
+        "button":"taurus/button/1.10.0/jquery.ui.button",
+        "draggable":"taurus/draggable/1.10.0/jquery.ui.draggable",
+        "mouse":"taurus/mouse/1.10.0/jquery.ui.mouse",
+        "position":"taurus/position/1.10.0/jquery.ui.position",
+        "resizable":"taurus/resizable/1.10.0/jquery.ui.resizable"
+    }
+}

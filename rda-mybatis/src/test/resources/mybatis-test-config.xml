@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+	<properties resource="mybatis-config.properties">
+		<property name="username" value="dev_user" />
+		<property name="password" value="F2Fa3!33TYyg" />
+	</properties>
+
+	<settings>
+		<setting name="cacheEnabled" value="true" />
+		<setting name="defaultExecutorType" value="REUSE" />
+	</settings>
+
+	<typeHandlers>
+<!-- 		<typeHandler handler="org.apache.ibatis.type.EnumTypeHandler<E>" /> -->
+		<typeHandler handler="org.apache.ibatis.type.EnumOrdinalTypeHandler" javaType="com.rda.mybatis.test.model.MyEnum" jdbcType="NUMERIC"/>
+	</typeHandlers>
+
+	<plugins>
+		<plugin interceptor="com.rda.mybatis.interceptors.paging.PageInterceptor">
+			<property name="databaseType" value="Oracle" />
+		</plugin>
+		<!--<plugin interceptor="com.rda.mybatis.interceptors.rw.RwInterceptor"/>-->
+	</plugins>
+
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC" />
+			<dataSource type="POOLED">
+				<property name="driver" value="org.h2.Driver" />
+				<property name="url"
+					value="jdbc:h2:mem:;INIT=runscript from 'f:/ws/my/rda-mybatis/target/test-classes/schema.sql'\;runscript from 'f:/ws/my/rda-mybatis/target/test-classes/test-data.sql'" />
+				<property name="username" value="sa" />
+				<property name="password" value="" />
+			</dataSource>
+		</environment>
+	</environments>
+
+	<mappers>
+		<mapper resource="mapper/user-mapper.xml" />
+	</mappers>
+
+</configuration>

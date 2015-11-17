@@ -1,0 +1,12 @@
+{
+    "name":"tip",
+    "version":"0.9.5",
+    "parent":"../package.json",
+    "output":{
+        "jquery.bt.js":"."
+    },
+    "dependencies":{
+    	"$":"$",
+        "bgiframe":"taurus/bgiframe/2.1.2/jquery.bgiframe"
+    }
+}

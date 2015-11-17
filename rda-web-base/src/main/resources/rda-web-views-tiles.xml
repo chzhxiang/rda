@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" 
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="
+			http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<!-- 此文件包含tiles相关配置 -->
+	
+	<!-- If no extension matched, use tiles view -->
+	<bean class="org.springframework.web.servlet.view.tiles3.TilesViewResolver" p:order="2" />
+	
+	<!-- 定义Tiles模板 -->
+	<bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
+		<property name="checkRefresh" value="true" />
+		<property name="definitions">
+			<list>
+				<value>/WEB-INF/tiles-definition/**/tiles-*.xml</value>
+			</list>
+		</property>
+	</bean>
+</beans>

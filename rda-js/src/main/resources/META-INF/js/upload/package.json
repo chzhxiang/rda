@@ -1,0 +1,9 @@
+{
+    "name":"upload",
+    "parent":"../package.json",
+    "version":"3.2.0",
+    "output":{"jquery.uploadify.js":"."},
+    "dependencies":{
+    	"$":"$"
+    }
+}
